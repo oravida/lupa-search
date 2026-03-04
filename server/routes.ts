@@ -2,7 +2,50 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+let connectionSettings: any;
+
+async function getCredentials() {
+  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
+  const xReplitToken = process.env.REPL_IDENTITY
+    ? "repl " + process.env.REPL_IDENTITY
+    : process.env.WEB_REPL_RENEWAL
+    ? "depl " + process.env.WEB_REPL_RENEWAL
+    : null;
+
+  if (!xReplitToken) {
+    throw new Error("X-Replit-Token not found for repl/depl");
+  }
+
+  connectionSettings = await fetch(
+    "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=resend",
+    {
+      headers: {
+        Accept: "application/json",
+        "X-Replit-Token": xReplitToken,
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((data) => data.items?.[0]);
+
+  if (!connectionSettings || !connectionSettings.settings.api_key) {
+    throw new Error("Resend not connected");
+  }
+  return {
+    apiKey: connectionSettings.settings.api_key,
+    fromEmail: connectionSettings.settings.from_email,
+  };
+}
+
+async function getResendClient() {
+  const { apiKey, fromEmail } = await getCredentials();
+  return {
+    client: new Resend(apiKey),
+    fromEmail,
+  };
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
@@ -12,47 +55,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       console.log("Contact API: Message received from", data.email);
 
-      // Setup email transport
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "smtp.ethereal.email",
-        port: Number(process.env.SMTP_PORT) || 587,
-        auth: {
-          user: process.env.SMTP_USER || "test@ethereal.email",
-          pass: process.env.SMTP_PASS || "password",
-        },
-      });
+      const { client, fromEmail } = await getResendClient();
 
-      const mailOptions = {
-        from: '"Lupa Site" <noreply@lupapesquisas.com.br>',
+      const emailResult = await client.emails.send({
+        from: fromEmail || "Lupa Site <onboarding@resend.dev>",
         to: "leandro@lupapesquisas.com.br",
         subject: `Nova Solicitação de Contato: ${data.empresa}`,
-        text: `
-          Nova solicitação recebida:
-          Empresa/Candidato: ${data.empresa}
-          Responsável: ${data.responsavel}
-          Telefone/WhatsApp: ${data.telefone}
-          Email: ${data.email}
-          Área de Interesse: ${data.area}
-          Demanda: ${data.demanda}
+        html: `
+          <h2>Nova solicitação recebida pelo site</h2>
+          <table style="border-collapse: collapse; width: 100%;">
+            <tr><td style="padding: 8px; font-weight: bold;">Empresa/Candidato:</td><td style="padding: 8px;">${data.empresa}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Responsável:</td><td style="padding: 8px;">${data.responsavel}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Telefone/WhatsApp:</td><td style="padding: 8px;">${data.telefone}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${data.email}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Área de Interesse:</td><td style="padding: 8px;">${data.area}</td></tr>
+            <tr><td style="padding: 8px; font-weight: bold;">Demanda:</td><td style="padding: 8px;">${data.demanda}</td></tr>
+          </table>
         `,
-      };
+      });
 
-      // Real sending logic
-      if (process.env.SMTP_USER && process.env.SMTP_USER !== "test@ethereal.email") {
-        await transporter.sendMail(mailOptions);
-        console.log("Email sent successfully to leandro@lupapesquisas.com.br");
-      } else {
-        console.log("DEV MODE: Email would be sent to leandro@lupapesquisas.com.br");
-        console.log("Mail Content:", mailOptions.text);
-      }
+      console.log("Email sent successfully to leandro@lupapesquisas.com.br", emailResult);
 
-      res.status(200).json({ 
-        success: true, 
-        message: "Solicitação enviada com sucesso! Entraremos em contato em breve." 
+      res.status(200).json({
+        success: true,
+        message: "Solicitação enviada com sucesso! Entraremos em contato em breve.",
       });
     } catch (error: any) {
       console.error("Contact form error:", error);
-      res.status(400).json({ success: false, message: "Erro ao processar sua solicitação." });
+      res.status(400).json({
+        success: false,
+        message: "Erro ao processar sua solicitação.",
+      });
     }
   });
 

@@ -43,22 +43,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
-          <Link href="/">
-            <a className="flex items-center gap-3" data-testid="link-home">
-              <img 
-                src={logoUrl} 
-                alt="Lupa Logo" 
-                className="h-12 w-auto"
-                onError={(e) => { 
-                  const t = e.target as HTMLImageElement;
-                  t.onerror = null; 
-                  t.src = "https://placehold.co/200x80?text=Lupa"; 
-                }} 
-              />
-            </a>
+          <Link href="/" className="flex items-center gap-3" data-testid="link-home">
+            <img 
+              src={logoUrl} 
+              alt="Lupa Logo" 
+              className="h-12 w-auto"
+              onError={(e) => { 
+                const t = e.target as HTMLImageElement;
+                t.onerror = null; 
+                t.src = "https://placehold.co/200x80?text=Lupa"; 
+              }} 
+            />
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
@@ -70,14 +67,16 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Link href="/sobre">
-              <a className="text-sm font-medium text-lupa-graphite hover:text-lupa-orange transition-colors" data-testid="link-sobre">
-                Sobre a Lupa
-              </a>
+            <Link
+              href="/sobre"
+              className="text-sm font-medium text-lupa-graphite hover:text-lupa-orange transition-colors"
+              data-testid="link-sobre"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Sobre a Lupa
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -90,7 +89,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-20 w-full bg-white border-b border-gray-100 shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-4 flex flex-col">
@@ -103,10 +101,12 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Link href="/sobre">
-              <a onClick={() => setIsOpen(false)} className="text-base font-medium text-lupa-graphite hover:text-lupa-orange transition-colors py-2 block">
-                Sobre a Lupa
-              </a>
+            <Link
+              href="/sobre"
+              className="text-base font-medium text-lupa-graphite hover:text-lupa-orange transition-colors py-2 block"
+              onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
+            >
+              Sobre a Lupa
             </Link>
           </div>
         </div>
