@@ -571,8 +571,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* BLOCO: PESQUISA QUALITATIVA GOIÁS 2018 */}
-          <div className="mb-8 text-center md:text-left">
+          {/* BLOCO: PESQUISA QUALITATIVA GOIÁS 2018 — título único acima do card */}
+          <div className="mb-6">
             <h3 className="text-3xl font-serif font-bold text-lupa-graphite mb-2">Pesquisa Qualitativa — Intenção de Voto | Goiás 2018</h3>
             <p className="text-lg text-lupa-gray-dark">Diagnóstico baseado em entrevistas em profundidade e grupos focais codificados (Goiânia).</p>
           </div>
