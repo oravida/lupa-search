@@ -3,6 +3,8 @@ import presentationPage9 from "@assets/Apresentação_LUPA-1-12-9_page-0001_1772
 import maxqdaImage from "@assets/targeted_element_1772589701320.png";
 import legendImage from "@assets/targeted_element_1772589995688.png";
 import metodologiaGeoVoto from "@assets/Apresentação_LUPA-1-12-8_page-0001_1772590317827.jpg";
+import metodologiaTseFontes from "@assets/Apresentação_LUPA-1-12-9_page-0001_1772591214559.jpg";
+import geoVotoUpdated from "@assets/targeted_element_1772591333463.png";
 import { motion, Variants } from "framer-motion";
 import { Link } from "wouter";
 import { useForm } from "react-hook-form";
@@ -595,6 +597,16 @@ export default function Home() {
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
                   target.src = "https://placehold.co/800x400?text=Metodologia+Geografia+do+Voto";
+                }}
+              />
+              <img
+                src={metodologiaTseFontes}
+                alt="Metodologia TSE + Outras Fontes de Dados"
+                className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://placehold.co/800x400?text=Metodologia+TSE+Fontes+de+Dados";
                 }}
               />
             </div>
