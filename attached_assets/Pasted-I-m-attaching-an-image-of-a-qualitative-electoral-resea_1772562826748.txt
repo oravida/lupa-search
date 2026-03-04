@@ -1,0 +1,31 @@
+I'm attaching an image of a qualitative electoral research interface (MAXQDA software) from Goiás, Brazil - 2018. The image shows a coding list with candidates and their positive/negative sentiment codes from voter interviews.
+
+I need you to create a **clean, modern, and readable web page section** that presents this electoral research data visually. Here's what the image contains:
+
+**Research context:** Qualitative electoral research on voting intention — Goiás 2018. The data shows how voters in Goiânia talk about each candidate (positive vs negative mentions from audio interviews).
+
+**Candidates and their mention counts (extracted from the image):**
+- CANDIDATOS À PRESIDÊNCIA: 4
+- ENTENDIMENTO SOBRE COMPOSIÇÃO DO S...: 10
+- DESCRIÇÃO DE GOIÁS: Positivo (19), Negativo (28), Vergonha (12)
+- RONALDO CAIADO - DEM: Negativo (12), Positivo (60)
+- JOSÉ ELITON - PSDB: Negativo (44), Positivo (6)
+- DANIEL VILELA - MDB: Negativo (25), Positivo (17)
+- ANTÔNIO GOMIDE - PT: Negativo (7), Positivo (26)
+- MARCONI PERILLO - PSDB: Negativo (62), Positivo (25)
+- LÚCIA VÂNIA - PSB: 77 total
+- JORGE KAJURU - PRP: Negativo (35), Positivo (14)
+- DEMÓSTENES TORRES - PTB: Negativo (38), Positivo (12)
+- MAGUITO VILELA - MDB: Negativo (18), Positivo (?)
+
+**What I need you to build:**
+1. A visually clean section/page that displays this data
+2. Use **horizontal bar charts** (or a similar clear visualization) comparing Positive vs Negative mentions per candidate — green for positive, red for negative
+3. Show each candidate's **party** next to their name
+4. Add a **title** like: "Pesquisa Qualitativa — Intenção de Voto | Goiás 2018"
+5. Add a small **subtitle** explaining it's based on coded audio interviews from Goiânia focus groups
+6. The design should be **modern, readable, and mobile-friendly**
+7. Use **Tailwind CSS** (or plain CSS if not available) for styling
+8. Keep the original image somewhere on the page as a reference/source (small, collapsible or in a modal)
+
+Make the data the star — clear, easy to read, and visually impactful.

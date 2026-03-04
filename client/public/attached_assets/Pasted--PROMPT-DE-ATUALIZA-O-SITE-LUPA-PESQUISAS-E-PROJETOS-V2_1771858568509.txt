@@ -1,0 +1,152 @@
+# 🔧 PROMPT DE ATUALIZAÇÃO — SITE LUPA PESQUISAS E PROJETOS (V2)
+
+---
+
+## INSTRUÇÃO GERAL
+
+**Mantenha absolutamente tudo que já existe no site atual.** Não altere nenhuma seção, cor, tipografia, layout ou texto já construído. Este prompt tem como único objetivo **acrescentar 3 novos blocos visuais** ao site — um dentro de cada seção de serviço. Todo o site continua em **Português do Brasil (PT-BR)**.
+
+---
+
+## BLOCO EXTRA 1 — INSERIR DENTRO DA SEÇÃO "PESQUISA ELEITORAL"
+
+**Posição:** Logo após os 3 cards de serviço e antes do botão CTA da seção eleitoral.
+
+**Objetivo visual:** Mostrar dados reais de pesquisa eleitoral de forma visual — mapas de calor de eleitores por região, gráfico de intenção de voto, perfil do eleitorado.
+
+**Fundo do bloco:** Branco, com borda sutil cinza clara separando do restante da seção.
+
+**Título do bloco:**
+> **"Como a Lupa lê o cenário eleitoral"**
+
+**Subtítulo:**
+> "Visualize dados reais transformados em estratégia de campanha."
+
+**Layout:** Dois elementos lado a lado (em mobile empilhados):
+
+**Elemento esquerdo — Mapa do Brasil interativo/visual (SVG):**
+- Criar um SVG estilizado do mapa do Brasil com os 8 estados de atuação da Lupa destacados em laranja `#faa749` com intensidade variada (simulando calor de atuação):
+  - Ceará, Bahia, Sergipe, Minas Gerais, Goiás, Amapá, Acre, Alagoas = laranja sólido
+  - Demais estados = cinza claro `#e0e0e0`
+- Abaixo do mapa: legenda pequena com texto *"Estados de atuação da Lupa"*
+- Ao passar o mouse sobre um estado destacado, mostrar tooltip simples com o nome do estado
+
+**Elemento direito — Painel de dados eleitorais simulado:**
+- Título pequeno: *"Exemplo de leitura de intenção de voto"*
+- Gráfico de barras horizontais em CSS puro (sem biblioteca) simulando pesquisa eleitoral:
+  - Candidato A — barra laranja `#faa749` — 42%
+  - Candidato B — barra cinza `#58595b` — 31%
+  - Candidato C — barra turquesa `#55c5d0` — 18%
+  - Indecisos — barra cinza claro — 9%
+- Abaixo do gráfico: 3 métricas em linha (ícone + número + label):
+  - 👥 **1.200** entrevistados
+  - 📍 **47** municípios mapeados
+  - 📊 **3** metodologias combinadas
+- Nota de rodapé em itálico pequeno: *"*Dados ilustrativos para fins de demonstração metodológica."*
+
+**Animação:** As barras do gráfico crescem da esquerda para a direita com animação suave quando a seção entra no viewport (usando IntersectionObserver já implementado no site).
+
+---
+
+## BLOCO EXTRA 2 — INSERIR DENTRO DA SEÇÃO "PESQUISA EMPRESARIAL"
+
+**Posição:** Logo após os 3 cards de serviço e antes do botão CTA da seção empresarial.
+
+**Objetivo visual:** Mostrar o impacto de decisões baseadas em dados para empresas — gráficos de crescimento, comparativo antes/depois, ROI de decisões estratégicas.
+
+**Fundo do bloco:** Manter o cinza `#58595b` da seção, com elemento de destaque em tom ligeiramente diferente `#6d6e70` para separação visual.
+
+**Título do bloco (texto branco):**
+> **"Decisões baseadas em dados geram resultados mensuráveis."**
+
+**Subtítulo (texto branco levemente transparente):**
+> "Empresas que investem em diagnóstico antes de decidir reduzem riscos e ampliam resultados."
+
+**Layout:** Três métricas de impacto em cards lado a lado + gráfico abaixo:
+
+**Cards de impacto (fundo `#7a7b7d`, texto branco, ícone laranja):**
+- Card 1: 📈 **+34%** — *"de aumento médio na satisfação de clientes após ajuste estratégico baseado em pesquisa"*
+- Card 2: 🎯 **2,7x** — *"mais assertividade em lançamentos de produto com validação prévia de mercado"*
+- Card 3: 💰 **-40%** — *"de redução em investimentos mal direcionados com diagnóstico antes da decisão"*
+
+**Nota abaixo dos cards (texto branco, itálico pequeno):**
+> *"*Dados baseados em médias de mercado de estudos do setor de pesquisa empresarial."*
+
+**Gráfico de linha abaixo (CSS/SVG puro):**
+- Simular gráfico de linha mostrando evolução de resultados ao longo do tempo
+- Duas linhas:
+  - Linha laranja `#faa749`: *"Empresa com diagnóstico estratégico"* — tendência crescente
+  - Linha cinza claro: *"Empresa sem diagnóstico"* — tendência estagnada/irregular
+- Eixo X: Jan · Mar · Mai · Jul · Set · Nov
+- Eixo Y: valores de 0 a 100 (representando índice de performance)
+- Legenda abaixo do gráfico
+- Título do gráfico: *"Índice de performance — com vs. sem pesquisa estratégica"*
+- Animação: linhas se desenham da esquerda para direita ao entrar no viewport
+
+---
+
+## BLOCO EXTRA 3 — INSERIR DENTRO DA SEÇÃO "PESQUISA E PROJETOS AMBIENTAIS"
+
+**Posição:** Logo após os 3 cards de serviço e antes do botão CTA da seção ambiental.
+
+**Objetivo visual:** Mostrar a diversidade de biomas e regiões do Brasil onde a Lupa atua em projetos ambientais — mapa de biomas, dados de projetos realizados por tipologia.
+
+**Fundo do bloco:** Manter o azul turquesa `#55c5d0` da seção, com painel interno em branco semitransparente.
+
+**Título do bloco (grafite escuro):**
+> **"Do campo ao relatório: leitura territorial com precisão ambiental."**
+
+**Subtítulo:**
+> "A Lupa atua em diferentes biomas brasileiros com metodologia adaptada a cada contexto territorial."
+
+**Layout:** Dois elementos lado a lado (em mobile empilhados):
+
+**Elemento esquerdo — Mapa do Brasil com biomas (SVG estilizado):**
+- Criar SVG estilizado do mapa do Brasil dividido por grandes biomas com cores distintas e suaves:
+  - Amazônia = verde escuro `#2d6a4f`
+  - Cerrado = verde oliva `#8fb339`
+  - Caatinga = amarelo ocre `#d4a017`
+  - Mata Atlântica = verde médio `#52b788`
+  - Pampa = verde claro `#b7e4c7`
+  - Pantanal = azul esverdeado `#74c69d`
+- Marcar com ícone de pin laranja `#faa749` os estados onde a Lupa já atuou em projetos ambientais: Ceará (Caatinga), Bahia (Mata Atlântica/Caatinga), Alagoas, Minas Gerais (Cerrado/Mata Atlântica), Goiás (Cerrado), Amapá (Amazônia), Acre (Amazônia)
+- Legenda de biomas ao lado ou abaixo do mapa com bolinhas coloridas + nome
+- Tooltip ao hover nos pins: nome do estado + bioma
+
+**Elemento direito — Painel de projetos ambientais realizados:**
+- Título pequeno: *"Projetos realizados por tipologia"*
+- Gráfico de barras verticais em CSS puro:
+  - Diagnóstico Territorial — barra verde `#52b788` — 38 projetos
+  - Impacto Socioambiental — barra verde escuro `#2d6a4f` — 29 projetos
+  - Licenciamento Ambiental — barra oliva `#8fb339` — 21 projetos
+  - Monitoramento de Fauna — barra turquesa `#55c5d0` com borda escura — 14 projetos
+- Abaixo do gráfico: destaque em caixa com borda esquerda laranja:
+  > *"Entre os projetos realizados: monitoramento de tartarugas marinhas no litoral nordestino, diagnósticos para remanejamento de comunidades em projetos hidrelétricos e estudos de impacto urbano para contenção de enchentes."*
+- Nota de rodapé: *"*Números ilustrativos baseados no portfólio histórico da empresa."*
+- Animação: barras crescem de baixo para cima ao entrar no viewport
+
+---
+
+## REQUISITOS TÉCNICOS DOS NOVOS BLOCOS
+
+- Todos os SVGs do mapa do Brasil devem ser criados inline no HTML com paths simplificados mas reconhecíveis — não usar imagens externas
+- Todos os gráficos devem ser construídos em CSS puro e/ou SVG inline — sem bibliotecas externas como Chart.js
+- Animações devem usar o IntersectionObserver já implementado no site — apenas acrescentar as classes necessárias
+- Os novos blocos devem ser totalmente responsivos: em mobile, os elementos lado a lado devem empilhar verticalmente
+- Manter a tipografia já definida: `Playfair Display` para títulos e `Source Sans 3` para corpo
+- Tooltips dos mapas devem funcionar tanto em hover (desktop) quanto em tap (mobile)
+- Nenhuma alteração nas seções, cores, textos ou estrutura já existentes no site
+- Os novos blocos devem ter padding/espaçamento consistente com o restante do site
+
+---
+
+## RESUMO DO QUE FAZER
+
+1. Abrir `index.html`
+2. Localizar a seção de **Pesquisa Eleitoral** → inserir Bloco Extra 1 antes do botão CTA
+3. Localizar a seção de **Pesquisa Empresarial** → inserir Bloco Extra 2 antes do botão CTA
+4. Localizar a seção de **Pesquisa Ambiental** → inserir Bloco Extra 3 antes do botão CTA
+5. Adicionar os estilos CSS necessários para os novos blocos (sem sobrescrever estilos existentes)
+6. Adicionar as animações JavaScript necessárias (sem sobrescrever scripts existentes)
+7. Testar responsividade em mobile
+8. Não alterar `sobre.html`

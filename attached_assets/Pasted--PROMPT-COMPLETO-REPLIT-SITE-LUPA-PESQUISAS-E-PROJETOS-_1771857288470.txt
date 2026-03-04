@@ -1,0 +1,276 @@
+# 🔧 PROMPT COMPLETO — REPLIT | SITE LUPA PESQUISAS E PROJETOS
+
+---
+
+## INSTRUÇÃO GERAL
+
+**IDIOMA: Todo o site deve ser 100% em Português do Brasil (PT-BR) — textos, placeholders, mensagens de validação do formulário, mensagens de confirmação e qualquer outro elemento textual.**
+
+Crie um site profissional completo em HTML, CSS e JavaScript puro para a empresa **Lupa Pesquisas e Projetos**. O site deve ter **duas páginas**: a página principal (`index.html`) e a página institucional (`sobre.html`). O design deve ser limpo, moderno, sofisticado e profissional — fundo predominantemente branco com blocos coloridos específicos por seção. Sem animações de texto em movimento (sem efeito de digitação, sem scroll infinito de palavras). O design deve transmitir **autoridade, credibilidade e sobriedade técnica**.
+
+---
+
+## IDENTIDADE VISUAL
+
+**Logo:** Circular, com as cores laranja, azul turquesa e grafite. Usar como referência de paleta.
+
+**Paleta de cores:**
+- Branco: `#FFFFFF` — fundo principal
+- Laranja: `#faa749` — botões, CTAs, destaques, formulário
+- Azul Turquesa: `#55c5d0` — bloco de Pesquisa Ambiental
+- Cinza escuro: `#58595b` — bloco de Pesquisa Empresarial (texto em branco nesse bloco)
+- Grafite: `#2c2c2c` — textos principais
+- Cinza claro: `#f5f5f5` — fundos alternativos sutis
+
+**Tipografia:**
+- Títulos: `'Playfair Display', serif` (Google Fonts) — autoridade e sofisticação
+- Corpo: `'Source Sans 3', sans-serif` (Google Fonts) — leitura limpa e moderna
+
+**Estilo geral:** Minimalista sofisticado. Espaços generosos. Hierarquia visual clara. Sem poluição visual. Sem gradientes chamativos. Sem animações excessivas. Apenas micro-interações suaves em hover e scroll.
+
+---
+
+## ESTRUTURA DE NAVEGAÇÃO
+
+### Menu fixo no topo (sticky navbar)
+- Logo da Lupa à esquerda (usar placeholder circular com texto "LUPA" nas cores da marca enquanto não há arquivo de imagem)
+- À direita: ícone de menu hambúrguer (3 tracinhos) que abre menu lateral ou dropdown com as opções:
+  - Pesquisa Eleitoral *(âncora para seção da página)*
+  - Pesquisa Empresarial *(âncora para seção da página)*
+  - Pesquisa Ambiental *(âncora para seção da página)*
+  - Contato *(âncora para formulário)*
+  - Sobre a Lupa *(link para sobre.html)*
+- Navbar com fundo branco, linha sutil na base, sem sombra pesada
+- Em desktop: mostrar os links diretamente, sem hambúrguer
+- Em mobile: menu hambúrguer com overlay
+
+---
+
+## PÁGINA PRINCIPAL — index.html
+
+### BLOCO 1 — HERO (fundo branco)
+
+**Objetivo:** Impacto imediato. Posicionamento claro. Confiança em 3 segundos.
+
+**Conteúdo:**
+- Headline principal (grande, Playfair Display):
+  > **"Clareza estratégica começa com leitura de cenário."**
+- Subtítulo (Source Sans, tamanho médio, grafite):
+  > "Pesquisas qualitativas, quantitativas e georreferenciadas para decisões que não admitem erro."
+- Dois botões lado a lado:
+  - Botão 1 (laranja sólido, texto branco): **"Solicitar Orçamento"** → âncora para formulário
+  - Botão 2 (borda laranja, texto laranja): **"Conheça a Lupa"** → link para sobre.html
+- Elemento visual à direita: imagem de mapa/território abstrato ou ícone de lupa estilizado em linhas finas — usar SVG decorativo geométrico nas cores da marca
+- Entrada suave com fade-in ao carregar a página
+
+---
+
+### BLOCO 2 — NÚMEROS E CREDENCIAIS (fundo branco, linha superior laranja fina)
+
+**Objetivo:** Prova social imediata em números. Gerar confiança antes de falar de serviços.
+
+**Layout:** 4 colunas com ícone + número + descrição
+
+| Ícone | Número | Descrição |
+|---|---|---|
+| 📅 | **+20 anos** | de atuação em pesquisa |
+| 🗳️ | **+120** | pesquisas eleitorais realizadas |
+| 🏢 | **+250** | pesquisas empresariais |
+| 🌿 | **+100** | projetos ambientais |
+
+Abaixo dos números, uma linha com os estados de atuação em texto pequeno, negrito leve:
+> **Ceará · Bahia · Sergipe · Minas Gerais · Goiás · Amapá · Acre · Alagoas**
+
+---
+
+### BLOCO 3 — PESQUISA ELEITORAL (fundo branco)
+
+**Objetivo:** Falar diretamente com o candidato/político. Mostrar que a Lupa entende a dor dele.
+
+**Estrutura:**
+- Tag pequena acima do título: `PESQUISA ELEITORAL` (cor laranja, caixa alta, letra pequena)
+- Título (Playfair Display):
+  > **"Decida sua estratégia com base em realidade, não em suposição."**
+- Texto curto (2-3 linhas, Source Sans):
+  > "Candidatos e gestores públicos que dependem de impressões pessoais e conselhos políticos tomam decisões frágeis. A Lupa entrega diagnóstico real do cenário eleitoral — onde estão seus eleitores, como percebem sua imagem e o que de fato move o voto."
+- Três cards lado a lado (bordas suaves, ícone no topo, título e texto curto):
+  - **Pesquisa Qualitativa** — "Grupos focais e entrevistas em profundidade. Entendemos motivações, discursos e percepções reais do eleitorado."
+  - **Pesquisa Quantitativa** — "Questionários estruturados com amostras representativas. Tendências, intenção de voto e projeções estatísticas precisas."
+  - **Geoprocessamento Eleitoral** — "Mapeamento territorial do eleitorado. Identificamos padrões regionais e variações por zona para estratégia de campo."
+- Abaixo dos cards, caixa de destaque (borda esquerda laranja):
+  > *"Nossa equipe chega ao município antes da pesquisa para entender como os extratos sociais se organizam localmente. Recrutamento baseado em observação real, não apenas em cotas padronizadas."*
+- Botão CTA (laranja): **"Quero minha pesquisa eleitoral"** → âncora para formulário
+
+---
+
+### BLOCO 4 — PESQUISA EMPRESARIAL (fundo `#58595b`, textos em branco)
+
+**Objetivo:** Falar com o empresário que precisa de dados para decisão estratégica.
+
+**Estrutura:**
+- Tag pequena: `PESQUISA EMPRESARIAL` (cor `#faa749`, caixa alta)
+- Título (Playfair Display, branco):
+  > **"Seu mercado tem respostas. A Lupa ajuda você a encontrá-las."**
+- Texto curto (branco, leve):
+  > "Empresários que atuam sem dados do seu público tomam decisões baseadas em intuição. Pesquisas de satisfação, comportamento do consumidor e viabilidade de mercado transformam incerteza em direção estratégica."
+- Três cards (fundo levemente mais claro que o bloco, `#6d6e70`, borda sutil, texto branco):
+  - **Satisfação de Clientes** — "Entenda como seu público percebe sua marca, produto e atendimento. Dados que orientam melhorias e fidelização."
+  - **Comportamento do Consumidor** — "Mapeamos hábitos, preferências e decisões de compra do seu público para posicionamento assertivo."
+  - **Viabilidade de Mercado** — "Antes de investir, entenda o cenário. Pesquisas para validação de novos negócios, expansões e lançamentos."
+- Exemplos de setores atendidos em linha (ícones pequenos):
+  > Imobiliário · Varejo · Serviços · Gestão Pública · Saúde
+- Botão CTA (laranja): **"Quero minha pesquisa empresarial"** → âncora para formulário
+
+---
+
+### BLOCO 5 — PESQUISA E PROJETOS AMBIENTAIS (fundo `#55c5d0`, textos grafite escuro)
+
+**Objetivo:** Falar com empresários e gestores que precisam de diagnóstico territorial e ambiental.
+
+**Estrutura:**
+- Tag pequena: `PESQUISA E PROJETOS AMBIENTAIS` (grafite escuro, caixa alta)
+- Título (Playfair Display, grafite):
+  > **"Diagnóstico ambiental com método. Dados que sustentam decisões responsáveis."**
+- Texto curto:
+  > "Empreendimentos que precisam de licenciamento ambiental e urbanístico exigem diagnósticos técnicos criteriosos. A Lupa realiza estudos de viabilidade territorial, impacto ambiental e análise socioambiental com rigor metodológico e leitura territorial real."
+- Três cards (fundo branco semitransparente, texto grafite):
+  - **Diagnóstico de Viabilidade** — "Estudos de viabilidade ambiental e urbanística para licenciamento de empreendimentos privados e públicos."
+  - **Impacto Socioambiental** — "Avaliação de impactos ambientais e sociais com imersão territorial e metodologia rigorosa."
+  - **Monitoramento e Projetos** — "Pesquisas de campo, coleta de dados ambientais e acompanhamento de projetos de conservação e preservação."
+- Botão CTA (grafite escuro, texto branco): **"Quero meu projeto ambiental"** → âncora para formulário
+
+---
+
+### BLOCO 6 — DIFERENCIAIS (fundo branco)
+
+**Objetivo:** Quebrar objeções. Mostrar por que a Lupa é diferente.
+
+**Estrutura:**
+- Tag: `POR QUE A LUPA`
+- Título:
+  > **"Não entregamos dados. Entregamos direção."**
+- Grid de 4 diferenciais com ícone + título + frase curta:
+  1. 🎯 **Metodologia sob medida** — "Cada projeto nasce da escuta do cliente. Nenhum modelo replicado."
+  2. 🧠 **Psicologia aplicada à pesquisa** — "Formação em psicologia amplia a leitura de comportamento coletivo e dinâmica de grupo."
+  3. 📍 **Recrutamento territorial** — "A equipe vai ao campo antes de aplicar qualquer instrumento. Leitura real do território."
+  4. 🗺️ **Geoprocessamento** — "Cruzamos dados qualitativos e quantitativos com mapeamento territorial para precisão máxima."
+  5. 📊 **Interpretação estratégica** — "Não apenas o que os dados dizem. O que deve ser feito a partir deles."
+  6. 🔒 **Independência técnica** — "Diagnóstico isento, sem conflito de interesses. A realidade, mesmo quando desconfortável."
+
+---
+
+### BLOCO 7 — FORMULÁRIO DE CAPTAÇÃO (fundo `#faa749`)
+
+**Objetivo:** Converter o visitante em lead qualificado.
+
+**Título (branco, Playfair Display):**
+> **"Fale com a Lupa."**
+
+**Subtítulo (branco, leve):**
+> "Preencha o formulário e entraremos em contato para entender sua demanda."
+
+**Campos do formulário (fundo branco, bordas suaves):**
+1. Nome da empresa ou candidato *(campo texto, obrigatório)*
+2. Nome do responsável *(campo texto, obrigatório)*
+3. Telefone com WhatsApp *(campo telefone, obrigatório)*
+4. E-mail *(campo email, obrigatório)*
+5. Área de interesse *(select obrigatório)*:
+   - Selecione uma área
+   - Pesquisa Eleitoral
+   - Pesquisa Empresarial
+   - Pesquisa e Projetos Ambientais
+6. Descreva brevemente sua demanda *(textarea, obrigatório, placeholder: "Conte um pouco sobre o que você precisa pesquisar...")*
+
+**Botão de envio:** Fundo grafite `#2c2c2c`, texto branco, hover com fundo mais escuro: **"Enviar solicitação"**
+
+*Nota técnica: O formulário deve ter validação básica em JavaScript. Ao enviar, exibir mensagem de confirmação: "Recebemos sua solicitação! Em breve entraremos em contato."*
+
+---
+
+### BLOCO 8 — RODAPÉ (fundo branco, linha superior laranja fina)
+
+**Layout em 3 colunas:**
+
+**Coluna 1 — Logo e tagline:**
+- Logo da Lupa
+- Tagline: *"Clareza estratégica começa com leitura de cenário."*
+
+**Coluna 2 — Contato:**
+- 📧 contato@lupapesquisas.com.br
+- 📱 WhatsApp (número placeholder)
+- 🌐 www.lupapesquisas.com.br
+
+**Coluna 3 — Atuação:**
+- Título: "Estados de Atuação"
+- Lista: Ceará · Bahia · Sergipe · Minas Gerais · Goiás · Amapá · Acre · Alagoas
+
+**Linha inferior:** © 2025 Lupa Pesquisas e Projetos. Todos os direitos reservados.
+
+---
+
+## PÁGINA SECUNDÁRIA — sobre.html
+
+### Navbar idêntica ao index.html (mesmo componente)
+
+### Seção 1 — Sobre a Lupa (fundo branco)
+- Tag: `SOBRE NÓS`
+- Título: **"Enxergar além do óbvio é o que nos move."**
+- Texto (manifesto reduzido):
+  > "A Lupa nasceu da necessidade de ir fundo. De olhar o que passa despercebido. De entender que território não é estatística, comportamento coletivo não cabe em planilha e dados sozinhos não orientam ninguém."
+  > "Desde 2010, transformamos pesquisa em direção estratégica para campanhas eleitorais, gestões públicas e decisões de mercado que exigem diagnóstico real."
+- Números em destaque: +20 anos · +120 pesquisas eleitorais · +250 empresariais · +100 projetos ambientais
+
+### Seção 2 — O Fundador (fundo `#f5f5f5`, dois blocos lado a lado)
+- Foto do Leandro (placeholder: retângulo arredondado com ícone de pessoa)
+- Lado direito:
+  - Tag: `FUNDADOR`
+  - Nome: **Leandro Araújo**
+  - Subtítulo: *Psicólogo · Pesquisador · Estrategista*
+  - Texto:
+    > "Formado em Psicologia pela UFMG (2002), Leandro iniciou sua trajetória em diagnósticos comunitários para grandes projetos de infraestrutura, com financiamento do Banco Mundial."
+    > "Em 2010, ingressa no universo das pesquisas de opinião pública. Em um diagnóstico para a Secretaria de Turismo de Alagoas, uma cliente disse que o relatório permitia 'enxergar o território com uma lupa'. Assim nasce o nome da empresa."
+    > "Presidente do Instituto de Meio Ambiente de Caucaia entre 2021 e 2024, coordenou projetos ambientais relevantes, incluindo iniciativas de preservação de tartarugas marinhas. Sua trajetória une psicologia, pesquisa, gestão pública e leitura territorial."
+
+### Seção 3 — Manifesto (fundo `#58595b`, texto branco)
+- Título (Playfair Display, branco): **"Pesquisa não é espetáculo. É responsabilidade."**
+- Texto em blocos curtos separados (manifesto reduzido):
+  > "Não criamos números para confirmar expectativas."
+  > "Construímos diagnósticos para revelar cenários."
+  > "Somos rigorosos porque a realidade exige rigor."
+  > "Somos independentes porque diagnóstico não negocia conveniência."
+  > **"A Lupa não amplia ruído. Amplia realidade."**
+
+### Seção 4 — Missão e Valores (fundo branco)
+- Grid com 3 blocos (borda superior laranja):
+  - **Missão:** "Produzir diagnósticos claros que sustentem decisões públicas e privadas baseadas em evidência, método e interpretação consistente."
+  - **Visão:** "Ser referência nacional em inteligência estratégica aplicada ao comportamento social."
+  - **Valores:** "Rigor metodológico · Independência técnica · Ética · Clareza · Responsabilidade social"
+
+### Rodapé idêntico ao index.html
+
+---
+
+## REQUISITOS TÉCNICOS GERAIS
+
+- HTML5 semântico e válido
+- CSS3 com variáveis CSS (`:root`) para toda a paleta de cores
+- JavaScript puro (sem frameworks) para: menu hambúrguer, scroll suave para âncoras, validação do formulário, fade-in das seções ao entrar no viewport (IntersectionObserver)
+- Totalmente responsivo: mobile-first. Breakpoints em 768px e 1024px
+- Google Fonts: importar `Playfair Display` e `Source Sans 3`
+- Todos os botões com transição suave de 0.3s no hover
+- Sem bibliotecas externas pesadas (sem Bootstrap, sem jQuery)
+- Carregamento rápido: imagens com lazy loading, SVGs inline onde possível
+- Favicon simples com a letra "L" em laranja
+- Meta tags de SEO básicas em ambas as páginas (title, description, viewport)
+- Placeholder de logo: SVG circular com fundo laranja `#faa749`, anel turquesa `#55c5d0`, anel cinza `#58595b` e texto "LUPA" em grafite — fiel à logo real
+
+---
+
+## OBSERVAÇÕES FINAIS PARA O REPLIT
+
+- Criar os dois arquivos: `index.html` e `sobre.html`
+- Todo CSS pode estar em arquivo separado `style.css` ou dentro de `<style>` no HTML
+- Todo JavaScript pode estar em arquivo separado `script.js` ou no final do HTML antes de `</body>`
+- NÃO usar animações de texto em movimento, efeito typewriter ou scroll infinito de palavras
+- Manter coerência visual total entre as duas páginas
+- Testar responsividade em mobile antes de finalizar

@@ -1,0 +1,442 @@
+# 🔧 PROMPT DE CORREÇÃO — SITE LUPA PESQUISAS E PROJETOS (V3)
+
+---
+
+## INSTRUÇÃO GERAL
+
+**Mantenha absolutamente tudo que já existe no site atual — estrutura, cores, textos, seções, tipografia.** Este prompt tem como objetivo **substituir os 3 blocos visuais extras** que foram criados na versão anterior, pois os mapas e gráficos não ficaram corretos. Os mapas do Brasil precisam ser reais e reconhecíveis. Os gráficos precisam ser limpos e legíveis. Todo o site continua em **Português do Brasil (PT-BR)**.
+
+---
+
+## BIBLIOTECAS A IMPORTAR (adicionar no `<head>` do index.html)
+
+```html
+<!-- Chart.js para gráficos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<!-- Leaflet.js para mapas reais do Brasil -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+```
+
+---
+
+## CORREÇÃO DO BLOCO EXTRA 1 — SEÇÃO "PESQUISA ELEITORAL"
+
+**Substituir o bloco visual anterior por este novo.**
+
+**Fundo:** Branco. Padding generoso. Título e subtítulo mantidos:
+> **"Como a Lupa lê o cenário eleitoral"**
+> "Visualize dados reais transformados em estratégia de campanha."
+
+**Layout:** Dois painéis lado a lado (em mobile empilhados).
+
+---
+
+### PAINEL ESQUERDO — Mapa real do Brasil com Leaflet.js
+
+```html
+<div id="mapa-eleitoral" style="width:100%; height:380px; border-radius:12px;"></div>
+```
+
+```javascript
+// Inicializar mapa do Brasil com Leaflet
+const mapaEleitoral = L.map('mapa-eleitoral', {
+  center: [-14.2350, -51.9253],
+  zoom: 4,
+  zoomControl: false,
+  scrollWheelZoom: false,
+  dragging: false,
+  attributionControl: false
+});
+
+// Tile layer estilo limpo e claro
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  subdomains: 'abcd',
+  maxZoom: 6
+}).addTo(mapaEleitoral);
+
+// Marcadores nos estados de atuação da Lupa com círculos laranja
+const estadosAtuacao = [
+  { nome: "Ceará", lat: -5.4984, lng: -39.3206 },
+  { nome: "Bahia", lat: -12.5797, lng: -41.7007 },
+  { nome: "Sergipe", lat: -10.5741, lng: -37.3857 },
+  { nome: "Minas Gerais", lat: -18.5122, lng: -44.5550 },
+  { nome: "Goiás", lat: -15.8270, lng: -49.8362 },
+  { nome: "Amapá", lat: -1.4102, lng: -51.7700 },
+  { nome: "Acre", lat: -9.0238, lng: -70.8120 },
+  { nome: "Alagoas", lat: -9.5713, lng: -36.7819 }
+];
+
+estadosAtuacao.forEach(estado => {
+  L.circleMarker([estado.lat, estado.lng], {
+    radius: 14,
+    fillColor: '#faa749',
+    color: '#e08830',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.85
+  }).addTo(mapaEleitoral)
+    .bindTooltip(`<strong>${estado.nome}</strong>`, {
+      permanent: false,
+      direction: 'top',
+      className: 'lupa-tooltip'
+    });
+});
+```
+
+**Legenda abaixo do mapa:**
+```html
+<div style="display:flex; align-items:center; gap:8px; margin-top:12px; font-size:13px; color:#58595b;">
+  <span style="width:14px; height:14px; background:#faa749; border-radius:50%; display:inline-block;"></span>
+  Estados de atuação da Lupa
+</div>
+```
+
+---
+
+### PAINEL DIREITO — Gráfico de intenção de voto com Chart.js
+
+**Título pequeno acima:** *"Exemplo de leitura de intenção de voto"*
+
+```html
+<canvas id="grafico-eleitoral" height="200"></canvas>
+```
+
+```javascript
+const ctxEleitoral = document.getElementById('grafico-eleitoral').getContext('2d');
+new Chart(ctxEleitoral, {
+  type: 'bar',
+  data: {
+    labels: ['Candidato A', 'Candidato B', 'Candidato C', 'Indecisos'],
+    datasets: [{
+      label: 'Intenção de voto (%)',
+      data: [42, 31, 18, 9],
+      backgroundColor: ['#faa749', '#58595b', '#55c5d0', '#cccccc'],
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.raw}%`
+        }
+      }
+    },
+    scales: {
+      x: {
+        max: 100,
+        grid: { color: '#f0f0f0' },
+        ticks: {
+          callback: val => val + '%',
+          font: { family: "'Source Sans 3', sans-serif", size: 12 }
+        }
+      },
+      y: {
+        grid: { display: false },
+        ticks: {
+          font: { family: "'Source Sans 3', sans-serif", size: 13 }
+        }
+      }
+    }
+  }
+});
+```
+
+**Métricas abaixo do gráfico em linha:**
+```html
+<div style="display:flex; gap:24px; margin-top:20px; flex-wrap:wrap;">
+  <span>👥 <strong>1.200</strong> entrevistados</span>
+  <span>📍 <strong>47</strong> municípios mapeados</span>
+  <span>📊 <strong>3</strong> metodologias combinadas</span>
+</div>
+<p style="font-size:12px; font-style:italic; color:#999; margin-top:10px;">
+  *Dados ilustrativos para fins de demonstração metodológica.
+</p>
+```
+
+---
+
+## CORREÇÃO DO BLOCO EXTRA 2 — SEÇÃO "PESQUISA EMPRESARIAL"
+
+**Substituir o bloco visual anterior por este novo.**
+
+**Fundo:** Cinza `#58595b`. Textos em branco. Título mantido:
+> **"Decisões baseadas em dados geram resultados mensuráveis."**
+
+---
+
+### 3 Cards de impacto (manter os que já existem — apenas verificar se estão corretos)
+
++34% · 2,7x · -40% com textos explicativos em branco.
+
+---
+
+### Gráfico de linha comparativo — substituir pelo seguinte com Chart.js
+
+```html
+<canvas id="grafico-empresarial" height="160" style="background:#6d6e70; border-radius:12px; padding:16px;"></canvas>
+```
+
+```javascript
+const ctxEmpresarial = document.getElementById('grafico-empresarial').getContext('2d');
+new Chart(ctxEmpresarial, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Mar', 'Mai', 'Jul', 'Set', 'Nov'],
+    datasets: [
+      {
+        label: 'Com diagnóstico estratégico',
+        data: [30, 42, 58, 70, 82, 91],
+        borderColor: '#faa749',
+        backgroundColor: 'rgba(250,167,73,0.15)',
+        borderWidth: 3,
+        tension: 0.4,
+        fill: true,
+        pointBackgroundColor: '#faa749',
+        pointRadius: 5
+      },
+      {
+        label: 'Sem diagnóstico',
+        data: [30, 32, 29, 34, 31, 33],
+        borderColor: '#cccccc',
+        backgroundColor: 'rgba(204,204,204,0.08)',
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true,
+        pointBackgroundColor: '#cccccc',
+        pointRadius: 4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#ffffff',
+          font: { family: "'Source Sans 3', sans-serif", size: 12 },
+          usePointStyle: true,
+          pointStyleWidth: 10
+        }
+      },
+      title: {
+        display: true,
+        text: 'ÍNDICE DE PERFORMANCE — COM VS. SEM PESQUISA ESTRATÉGICA',
+        color: '#ffffff',
+        font: { family: "'Source Sans 3', sans-serif", size: 12, weight: '600' },
+        padding: { bottom: 20 }
+      },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} pts`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255,255,255,0.1)' },
+        ticks: { color: '#ffffff', font: { family: "'Source Sans 3', sans-serif" } }
+      },
+      y: {
+        min: 0,
+        max: 100,
+        grid: { color: 'rgba(255,255,255,0.1)' },
+        ticks: { color: '#ffffff', font: { family: "'Source Sans 3', sans-serif" } }
+      }
+    }
+  }
+});
+```
+
+---
+
+## CORREÇÃO DO BLOCO EXTRA 3 — SEÇÃO "PESQUISA E PROJETOS AMBIENTAIS"
+
+**Substituir o bloco visual anterior por este novo.**
+
+**Fundo:** Azul turquesa `#55c5d0`. Textos em grafite escuro. Título mantido:
+> **"Do campo ao relatório: leitura territorial com precisão ambiental."**
+
+---
+
+### PAINEL ESQUERDO — Mapa real do Brasil com Leaflet.js
+
+```html
+<div id="mapa-ambiental" style="width:100%; height:380px; border-radius:12px;"></div>
+```
+
+```javascript
+const mapaAmbiental = L.map('mapa-ambiental', {
+  center: [-14.2350, -51.9253],
+  zoom: 4,
+  zoomControl: false,
+  scrollWheelZoom: false,
+  dragging: false,
+  attributionControl: false
+});
+
+// Tile layer com estilo natural/verde
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  subdomains: 'abcd',
+  maxZoom: 6
+}).addTo(mapaAmbiental);
+
+// Marcadores com bioma de cada estado
+const estadosAmbientais = [
+  { nome: "Ceará", bioma: "Caatinga", lat: -5.4984, lng: -39.3206, cor: "#d4a017" },
+  { nome: "Bahia", bioma: "Mata Atlântica / Caatinga", lat: -12.5797, lng: -41.7007, cor: "#52b788" },
+  { nome: "Alagoas", bioma: "Mata Atlântica", lat: -9.5713, lng: -36.7819, cor: "#52b788" },
+  { nome: "Sergipe", bioma: "Mata Atlântica", lat: -10.5741, lng: -37.3857, cor: "#52b788" },
+  { nome: "Minas Gerais", bioma: "Cerrado / Mata Atlântica", lat: -18.5122, lng: -44.5550, cor: "#8fb339" },
+  { nome: "Goiás", bioma: "Cerrado", lat: -15.8270, lng: -49.8362, cor: "#8fb339" },
+  { nome: "Amapá", bioma: "Amazônia", lat: -1.4102, lng: -51.7700, cor: "#2d6a4f" },
+  { nome: "Acre", bioma: "Amazônia", lat: -9.0238, lng: -70.8120, cor: "#2d6a4f" }
+];
+
+estadosAmbientais.forEach(estado => {
+  L.circleMarker([estado.lat, estado.lng], {
+    radius: 14,
+    fillColor: estado.cor,
+    color: '#ffffff',
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.9
+  }).addTo(mapaAmbiental)
+    .bindTooltip(`<strong>${estado.nome}</strong><br><small>${estado.bioma}</small>`, {
+      permanent: false,
+      direction: 'top',
+      className: 'lupa-tooltip'
+    });
+});
+```
+
+**Legenda de biomas abaixo do mapa:**
+```html
+<div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; font-size:12px; color:#2c2c2c;">
+  <span><span style="width:12px;height:12px;background:#2d6a4f;border-radius:50%;display:inline-block;margin-right:4px;"></span>Amazônia</span>
+  <span><span style="width:12px;height:12px;background:#8fb339;border-radius:50%;display:inline-block;margin-right:4px;"></span>Cerrado</span>
+  <span><span style="width:12px;height:12px;background:#d4a017;border-radius:50%;display:inline-block;margin-right:4px;"></span>Caatinga</span>
+  <span><span style="width:12px;height:12px;background:#52b788;border-radius:50%;display:inline-block;margin-right:4px;"></span>Mata Atlântica</span>
+</div>
+```
+
+---
+
+### PAINEL DIREITO — Gráfico de barras verticais por tipologia de projeto
+
+**Título:** *"Projetos realizados por tipologia"*
+
+```html
+<canvas id="grafico-ambiental" height="260"></canvas>
+```
+
+```javascript
+const ctxAmbiental = document.getElementById('grafico-ambiental').getContext('2d');
+new Chart(ctxAmbiental, {
+  type: 'bar',
+  data: {
+    labels: ['Diagnóstico\nTerritorial', 'Impacto\nSocioambiental', 'Licenciamento\nAmbiental', 'Monitoramento\nde Fauna'],
+    datasets: [{
+      label: 'Projetos realizados',
+      data: [38, 29, 21, 14],
+      backgroundColor: ['#2d6a4f', '#52b788', '#8fb339', '#d4a017'],
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.raw} projetos`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          font: { family: "'Source Sans 3', sans-serif", size: 11 },
+          color: '#2c2c2c'
+        }
+      },
+      y: {
+        beginAtZero: true,
+        grid: { color: 'rgba(0,0,0,0.08)' },
+        ticks: {
+          font: { family: "'Source Sans 3', sans-serif", size: 12 },
+          color: '#2c2c2c'
+        }
+      }
+    }
+  }
+});
+```
+
+**Caixa de destaque abaixo (borda esquerda laranja, fundo branco semitransparente):**
+```html
+<blockquote style="border-left:4px solid #faa749; background:rgba(255,255,255,0.6); padding:16px 20px; margin:20px 0; border-radius:0 8px 8px 0; font-style:italic; font-size:14px; color:#2c2c2c;">
+  "Entre os projetos realizados: monitoramento de tartarugas marinhas no litoral nordestino, diagnósticos para remanejamento de comunidades em projetos hidrelétricos e estudos de impacto urbano para contenção de enchentes."
+</blockquote>
+<p style="font-size:12px; font-style:italic; color:#2c2c2c; opacity:0.7;">
+  *Números ilustrativos baseados no portfólio histórico da empresa.
+</p>
+```
+
+---
+
+## CSS ADICIONAL NECESSÁRIO (adicionar no style.css ou `<style>`)
+
+```css
+/* Tooltip dos mapas Leaflet estilizado */
+.lupa-tooltip {
+  background: #2c2c2c;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.lupa-tooltip::before {
+  border-top-color: #2c2c2c !important;
+}
+
+/* Container dos painéis lado a lado */
+.bloco-visual-duplo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .bloco-visual-duplo {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+```
+
+---
+
+## RESUMO DO QUE FAZER
+
+1. Adicionar as importações do **Chart.js** e **Leaflet.js** no `<head>` do `index.html`
+2. **Localizar os 3 blocos visuais extras** criados anteriormente e **substituí-los** pelos novos blocos desta versão
+3. Adicionar o CSS adicional ao arquivo de estilos
+4. Inicializar os mapas Leaflet e os gráficos Chart.js no final do `<body>` (antes do `</body>`)
+5. **Não alterar nada mais** — nenhuma seção, cor, texto ou estrutura existente deve ser tocada
+6. Não alterar o `sobre.html`
+7. Testar se os dois mapas renderizam corretamente e se os três gráficos aparecem com os dados corretos
