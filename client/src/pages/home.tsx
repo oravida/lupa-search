@@ -609,12 +609,6 @@ export default function Home() {
                 }}
               />
             </div>
-
-            <div className="mt-8 pt-8 border-t border-gray-100">
-              <p className="text-sm text-lupa-gray-dark leading-relaxed italic text-center md:text-left">
-                * Acima, registro da interface de codificação de áudios (MAXQDA) utilizada para análise de sentimento e extração de insights em grupos focais.
-              </p>
-            </div>
           </div>
 
           <Button 
