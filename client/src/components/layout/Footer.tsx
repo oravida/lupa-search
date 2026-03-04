@@ -11,7 +11,7 @@ export default function Footer() {
             <img 
               src={logoUrl} 
               alt="Lupa Pesquisas e Projetos Logo" 
-              className="h-14 w-auto mb-3 grayscale hover:grayscale-0 transition-all duration-500"
+              className="h-14 w-auto mb-3 transition-all duration-500"
               onError={(e) => {
                 const t = e.target as HTMLImageElement;
                 t.onerror = null;
