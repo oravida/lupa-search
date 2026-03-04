@@ -1,3 +1,8 @@
+import presentationPage8 from "@assets/Apresentação_LUPA-1-12-8_page-0001_1772589644352.jpg";
+import presentationPage9 from "@assets/Apresentação_LUPA-1-12-9_page-0001_1772589698087.jpg";
+import maxqdaImage from "@assets/targeted_element_1772589701320.png";
+import legendImage from "@assets/targeted_element_1772589995688.png";
+import metodologiaGeoVoto from "@assets/Apresentação_LUPA-1-12-8_page-0001_1772590317827.jpg";
 import { motion, Variants } from "framer-motion";
 import { Link } from "wouter";
 import { useForm } from "react-hook-form";
@@ -571,15 +576,25 @@ export default function Home() {
               <p className="text-lg text-lupa-gray-dark">Diagnóstico baseado em entrevistas em profundidade e grupos focais codificados (Goiânia).</p>
             </div>
             
-            <div className="flex justify-center">
-              <img onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400?text=Imagem+Indispon%C3%ADvel"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x200?text=Imagem+indisponível"; }} 
-                src="/attached_assets/WhatsApp_Image_2026-03-03_at_08.42.24_1772562939088.jpeg" 
-                alt="Interface de pesquisa qualitativa MAXQDA" 
+            <div className="flex flex-col items-center gap-8">
+              <img
+                src={maxqdaImage}
+                alt="Interface de pesquisa qualitativa MAXQDA"
                 className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.onerror = null; 
-                  target.src = "https://placehold.co/800x400?text=Interface+MAXQDA+Goiás+2018";
+                  target.onerror = null;
+                  target.src = "https://placehold.co/800x400?text=Interface+MAXQDA";
+                }}
+              />
+              <img
+                src={metodologiaGeoVoto}
+                alt="Metodologia Geografia do Voto"
+                className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = "https://placehold.co/800x400?text=Metodologia+Geografia+do+Voto";
                 }}
               />
             </div>
