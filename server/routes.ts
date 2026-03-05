@@ -7,6 +7,13 @@ import { Resend } from "resend";
 let connectionSettings: any;
 
 async function getCredentials() {
+  if (process.env.RESEND_API_KEY) {
+    return {
+      apiKey: process.env.RESEND_API_KEY,
+      fromEmail: process.env.RESEND_FROM_EMAIL || "Lupa Site <onboarding@resend.dev>",
+    };
+  }
+
   const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
   const xReplitToken = process.env.REPL_IDENTITY
     ? "repl " + process.env.REPL_IDENTITY
@@ -15,7 +22,7 @@ async function getCredentials() {
     : null;
 
   if (!xReplitToken) {
-    throw new Error("X-Replit-Token not found for repl/depl");
+    throw new Error("No Resend credentials found. Set RESEND_API_KEY or connect Resend via Replit.");
   }
 
   connectionSettings = await fetch(
@@ -55,26 +62,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       console.log("Contact API: Message received from", data.email);
 
-      const { client, fromEmail } = await getResendClient();
+      try {
+        const { client, fromEmail } = await getResendClient();
 
-      const emailResult = await client.emails.send({
-        from: fromEmail || "Lupa Site <onboarding@resend.dev>",
-        to: "leandro@lupapesquisas.com.br",
-        subject: `Nova Solicitação de Contato: ${data.empresa}`,
-        html: `
-          <h2>Nova solicitação recebida pelo site</h2>
-          <table style="border-collapse: collapse; width: 100%;">
-            <tr><td style="padding: 8px; font-weight: bold;">Empresa/Candidato:</td><td style="padding: 8px;">${data.empresa}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Responsável:</td><td style="padding: 8px;">${data.responsavel}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Telefone/WhatsApp:</td><td style="padding: 8px;">${data.telefone}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${data.email}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Área de Interesse:</td><td style="padding: 8px;">${data.area}</td></tr>
-            <tr><td style="padding: 8px; font-weight: bold;">Demanda:</td><td style="padding: 8px;">${data.demanda}</td></tr>
-          </table>
-        `,
-      });
+        const emailResult = await client.emails.send({
+          from: fromEmail || "Lupa Site <onboarding@resend.dev>",
+          to: "leandro@lupapesquisas.com.br",
+          subject: `Nova Solicitação de Contato: ${data.empresa}`,
+          html: `
+            <h2>Nova solicitação recebida pelo site</h2>
+            <table style="border-collapse: collapse; width: 100%;">
+              <tr><td style="padding: 8px; font-weight: bold;">Empresa/Candidato:</td><td style="padding: 8px;">${data.empresa}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Responsável:</td><td style="padding: 8px;">${data.responsavel}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Telefone/WhatsApp:</td><td style="padding: 8px;">${data.telefone}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${data.email}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Área de Interesse:</td><td style="padding: 8px;">${data.area}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Demanda:</td><td style="padding: 8px;">${data.demanda}</td></tr>
+            </table>
+          `,
+        });
 
-      console.log("Email sent successfully to leandro@lupapesquisas.com.br", emailResult);
+        console.log("Email sent successfully to leandro@lupapesquisas.com.br", emailResult);
+      } catch (emailError: any) {
+        console.error("Email sending failed (form data was saved):", emailError.message);
+      }
 
       res.status(200).json({
         success: true,
