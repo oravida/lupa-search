@@ -215,11 +215,11 @@ export default function Home() {
                 Pesquisas qualitativas, quantitativas e análise com geoprocessamento para decisões precisas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={scrollToForm} className="bg-lupa-orange hover:bg-orange-500 text-white text-lg h-14 px-8 rounded-none border-0" data-testid="button-hero-orcamento">
-                  Solicitar Orçamento
-                </Button>
                 <Button asChild variant="outline" className="border-lupa-orange text-lupa-orange hover:bg-orange-50 text-lg h-14 px-8 rounded-none" data-testid="button-hero-sobre">
                   <Link href="/sobre">Conheça a Lupa</Link>
+                </Button>
+                <Button onClick={scrollToForm} className="bg-lupa-orange hover:bg-orange-500 text-white text-lg h-14 px-8 rounded-none border-0" data-testid="button-hero-orcamento">
+                  Solicitar Orçamento
                 </Button>
               </div>
             </motion.div>
