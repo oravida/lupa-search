@@ -570,6 +570,12 @@ export default function Home() {
                 className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
                 onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Pesquisa+Qualitativa"; }}
               />
+              <img
+                src="/attached_assets/Imagem para substituir geografia do voto_page-0002.jpg"
+                alt="Metodologia Geografia do Voto"
+                className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
+                onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Geografia+do+Voto"; }}
+              />
             </div>
           </div>
 
