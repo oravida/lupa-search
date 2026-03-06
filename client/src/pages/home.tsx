@@ -10,7 +10,7 @@ import { Link } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Calendar, Users, Building2, Leaf, Target, Brain, MapPin, Map, LineChart, ShieldCheck } from "lucide-react";
+import { Calendar, Users, Building2, Leaf, Target, Brain, MapPin, Map, LineChart, ShieldCheck, ThumbsUp, ShoppingCart, TrendingUp, ClipboardList, TreePine, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -594,14 +594,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
-              { title: "Satisfação de Clientes",      desc: "Entenda como seu público percebe sua marca, produto e atendimento. Dados que orientam melhorias e fidelização." },
-              { title: "Comportamento do Consumidor", desc: "Mapeamos hábitos, preferências e decisões de compra do seu público para posicionamento assertivo." },
-              { title: "Viabilidade de Mercado",      desc: "Antes de investir, entenda o cenário. Pesquisas para validação de novos negócios, expansões e lançamentos." },
+              { title: "Satisfação de Clientes",      desc: "Entenda como seu público percebe sua marca, produto e atendimento. Dados que orientam melhorias e fidelização.", icon: ThumbsUp },
+              { title: "Comportamento do Consumidor", desc: "Mapeamos hábitos, preferências e decisões de compra do seu público para posicionamento assertivo.", icon: ShoppingCart },
+              { title: "Viabilidade de Mercado",      desc: "Antes de investir, entenda o cenário. Pesquisas para validação de novos negócios, expansões e lançamentos.", icon: TrendingUp },
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1 } } }}
                 className="bg-[#6d6e70] border border-gray-500/30 p-8 hover:bg-[#7a7b7d] transition-colors duration-300"
               >
+                <card.icon className="w-8 h-8 text-lupa-orange mb-6" />
                 <h3 className="text-xl font-serif font-bold text-white mb-4">{card.title}</h3>
                 <p className="text-gray-200">{card.desc}</p>
               </motion.div>
@@ -632,14 +633,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
-              { title: "Diagnóstico de Viabilidade", desc: "Estudos de viabilidade ambiental e urbanística para licenciamento de empreendimentos privados e públicos." },
-              { title: "Impacto Socioambiental",     desc: "Avaliação de impactos ambientais e sociais com imersão territorial e metodologia rigorosa." },
-              { title: "Monitoramento e Projetos",   desc: "Pesquisas de campo, coleta de dados ambientais e acompanhamento de projetos de conservação e preservação." },
+              { title: "Diagnóstico de Viabilidade", desc: "Estudos de viabilidade ambiental e urbanística para licenciamento de empreendimentos privados e públicos.", icon: ClipboardList },
+              { title: "Impacto Socioambiental",     desc: "Avaliação de impactos ambientais e sociais com imersão territorial e metodologia rigorosa.", icon: TreePine },
+              { title: "Monitoramento e Projetos",   desc: "Pesquisas de campo, coleta de dados ambientais e acompanhamento de projetos de conservação e preservação.", icon: Activity },
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1 } } }}
                 className="bg-white/90 backdrop-blur p-8 hover:bg-white transition-colors duration-300"
               >
+                <card.icon className="w-8 h-8 text-lupa-graphite mb-6" />
                 <h3 className="text-xl font-serif font-bold text-lupa-graphite mb-4">{card.title}</h3>
                 <p className="text-lupa-gray-dark">{card.desc}</p>
               </motion.div>
