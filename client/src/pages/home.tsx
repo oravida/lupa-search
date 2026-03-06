@@ -399,7 +399,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex justify-center mt-12 lg:mt-0"
             >
-              {/* Ilustração Premium da Lupa - MELHORADA COM VIDRO TRANSPARENTE */}
+              {/* Ilustração Premium da Lupa - COM VIDRO TRANSPARENTE E ZOOM REAL */}
               <div className="w-full max-w-lg aspect-square relative flex items-center justify-center">
                 {/* Background radial glow */}
                 <div className="absolute inset-0 bg-radial-glow from-orange-100/40 to-transparent rounded-full blur-3xl scale-150 opacity-60 animate-glow-breathe"></div>
@@ -416,24 +416,33 @@ export default function Home() {
                       <stop offset="100%" stopColor="#faa749" stopOpacity="0" />
                     </radialGradient>
 
-                    {/* NOVO: Padrão de fundo ampliado (efeito de zoom) */}
-                    <pattern id="fundoZoomLupa" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
-                      <circle cx="6" cy="6" r="1.5" fill="#E0E8FF" opacity="0.4"/>
-                      <circle cx="2" cy="8" r="0.8" fill="#D0E0FF" opacity="0.25"/>
+                    {/* ZOOM: Padrão ampliado muito maior (efeito de lupa) */}
+                    <pattern id="fundoZoomAmpliado" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                      <circle cx="4" cy="4" r="1.2" fill="#E0E8FF" opacity="0.5"/>
+                      <circle cx="1" cy="6" r="0.6" fill="#D0E0FF" opacity="0.35"/>
+                      <circle cx="6" cy="2" r="0.5" fill="#C0D8FF" opacity="0.25"/>
                     </pattern>
 
-                    {/* NOVO: Gradiente de vidro transparente */}
-                    <radialGradient id="vidroCentroTransparente" cx="40%" cy="40%" r="50%">
-                      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
-                      <stop offset="40%" stopColor="#FFFFFF" stopOpacity="0.1" />
-                      <stop offset="100%" stopColor="#4A90E2" stopOpacity="0.15" />
+                    {/* Vidro super transparente com cor azul suave */}
+                    <radialGradient id="vidroCentroZoom" cx="35%" cy="35%" r="55%">
+                      <stop offset="0%" stopColor="#E8F4FF" stopOpacity="0.2" />
+                      <stop offset="35%" stopColor="#B3D9FF" stopOpacity="0.15" />
+                      <stop offset="70%" stopColor="#6BA3E5" stopOpacity="0.1" />
+                      <stop offset="100%" stopColor="#2C5AA0" stopOpacity="0.08" />
                     </radialGradient>
 
-                    {/* NOVO: Sombra interna para profundidade */}
-                    <radialGradient id="sombraInternaVidro" cx="50%" cy="50%" r="50%">
+                    {/* Brilho super sutil do vidro */}
+                    <radialGradient id="brilhoVidroZoom" cx="30%" cy="30%" r="45%">
+                      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.25" />
+                      <stop offset="40%" stopColor="#FFFFFF" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+                    </radialGradient>
+
+                    {/* Sombra interna muito sutil */}
+                    <radialGradient id="sombraVidroZoom" cx="50%" cy="50%" r="50%">
                       <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
-                      <stop offset="80%" stopColor="#000000" stopOpacity="0.06" />
-                      <stop offset="100%" stopColor="#000000" stopOpacity="0.12" />
+                      <stop offset="75%" stopColor="#000000" stopOpacity="0.03" />
+                      <stop offset="100%" stopColor="#1A3A5C" stopOpacity="0.08" />
                     </radialGradient>
 
                     <filter id="premiumShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -448,7 +457,7 @@ export default function Home() {
                   {/* Pulsing radar circle */}
                   <circle cx="200" cy="200" r="120" stroke="#55c5d0" strokeWidth="1.5" strokeDasharray="6 6" className="animate-radar opacity-70" />
                   
-                  {/* Breating glow circle */}
+                  {/* Breathing glow circle */}
                   <circle cx="230" cy="170" r="100" fill="url(#illustrationBgGlow)" className="animate-glow-breathe" />
                   
                   {/* The Pointer Line */}
@@ -467,27 +476,30 @@ export default function Home() {
                     <path d="M255 255 L320 320" stroke="#faa749" strokeWidth="6" strokeLinecap="round" />
                     <path d="M255 255 L320 320" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.3" transform="translate(-1, -1)" />
                     
-                    {/* The Lupa Lens - MOLDURA LARANJA */}
+                    {/* ARO DA LUPA (MOLDURA LARANJA) */}
                     <circle cx="210" cy="210" r="65" stroke="#faa749" strokeWidth="4" fill="url(#lupaLensGradient)" fillOpacity="0.95" />
                     
-                    {/* NOVO: Centro com padrão de fundo (TRANSPARÊNCIA COM ZOOM) */}
-                    <circle cx="210" cy="210" r="61" fill="url(#fundoZoomLupa)" />
+                    {/* CENTRO 1: Padrão de fundo AMPLIADO (ZOOM) */}
+                    <circle cx="210" cy="210" r="61" fill="url(#fundoZoomAmpliado)" />
                     
-                    {/* NOVO: Camada de vidro (brilho transparente) */}
-                    <circle cx="210" cy="210" r="61" fill="url(#vidroCentroTransparente)" />
+                    {/* CENTRO 2: Vidro transparente azulado */}
+                    <circle cx="210" cy="210" r="61" fill="url(#vidroCentroZoom)" />
                     
-                    {/* NOVO: Sombra interna (profundidade) */}
-                    <circle cx="210" cy="210" r="61" fill="url(#sombraInternaVidro)" />
+                    {/* CENTRO 3: Brilho refrator sutil */}
+                    <circle cx="210" cy="210" r="61" fill="url(#brilhoVidroZoom)" />
                     
-                    {/* NOVO: Brilho refrator no vidro */}
-                    <ellipse cx="185" cy="185" rx="22" ry="22" fill="#ffffff" opacity="0.35" />
-                    <ellipse cx="190" cy="180" rx="8" ry="8" fill="#ffffff" opacity="0.5" />
+                    {/* CENTRO 4: Sombra interna para profundidade */}
+                    <circle cx="210" cy="210" r="61" fill="url(#sombraVidroZoom)" />
                     
-                    {/* Borda interna da lupa (sutil) */}
-                    <circle cx="210" cy="210" r="57" stroke="#FF7700" strokeWidth="0.8" opacity="0.25" />
+                    {/* Brilho especular no vidro (reflexo de luz) */}
+                    <ellipse cx="185" cy="180" rx="20" ry="20" fill="#FFFFFF" opacity="0.3" />
+                    <ellipse cx="188" cy="177" rx="7" ry="7" fill="#FFFFFF" opacity="0.5" />
                     
-                    {/* Borda externa da moldura (para realce) */}
-                    <circle cx="210" cy="210" r="65" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.15" />
+                    {/* Borda interna bem sutil */}
+                    <circle cx="210" cy="210" r="59" stroke="#4A90E2" strokeWidth="0.5" opacity="0.2" />
+                    
+                    {/* Borda externa para realce */}
+                    <circle cx="210" cy="210" r="65" stroke="#FFFFFF" strokeWidth="0.8" fill="none" opacity="0.1" />
                   </g>
                 </svg>
               </div>
