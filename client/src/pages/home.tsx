@@ -543,7 +543,7 @@ export default function Home() {
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { delay: i * 0.1 } } }}
-                className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border-2 border-gray-200 p-8 hover:border-lupa-orange hover:shadow-lg transition-all duration-300"
               >
                 <card.icon className="w-8 h-8 text-lupa-orange mb-6" />
                 <h3 className="text-xl font-serif font-bold text-lupa-graphite mb-4">{card.title}</h3>
