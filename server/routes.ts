@@ -56,7 +56,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         const { client, fromEmail } = await getResendClient();
         const emailResult = await client.emails.send({
           from: fromEmail || "Lupa Site <onboarding@resend.dev>",
-          to: "leandro@lupapesquisa.com.br",
+          to: "leandro@lupapesquisas.com.br",
           subject: `Nova Solicitação de Contato: ${data.empresa}`,
           html: `
             <h2>Nova solicitação recebida pelo site</h2>
@@ -70,7 +70,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
             </table>
           `,
         });
-        console.log("Email sent successfully to leandro@lupapesquisa.com.br", emailResult);
+        console.log("Email sent successfully to leandro@lupapesquisas.com.br", emailResult);
       } catch (emailError: any) {
         console.error("Email sending failed (form data was saved):", emailError.message);
       }
