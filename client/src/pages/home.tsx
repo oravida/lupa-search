@@ -399,7 +399,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex justify-center mt-12 lg:mt-0"
             >
-              {/* Ilustração Premium da Lupa */}
+              {/* Ilustração Premium da Lupa - MELHORADA COM VIDRO TRANSPARENTE */}
               <div className="w-full max-w-lg aspect-square relative flex items-center justify-center">
                 {/* Background radial glow */}
                 <div className="absolute inset-0 bg-radial-glow from-orange-100/40 to-transparent rounded-full blur-3xl scale-150 opacity-60 animate-glow-breathe"></div>
@@ -414,6 +414,26 @@ export default function Home() {
                     <radialGradient id="illustrationBgGlow" cx="50%" cy="50%" r="50%">
                       <stop offset="0%" stopColor="#faa749" stopOpacity="0.15" />
                       <stop offset="100%" stopColor="#faa749" stopOpacity="0" />
+                    </radialGradient>
+
+                    {/* NOVO: Padrão de fundo ampliado (efeito de zoom) */}
+                    <pattern id="fundoZoomLupa" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+                      <circle cx="6" cy="6" r="1.5" fill="#E0E8FF" opacity="0.4"/>
+                      <circle cx="2" cy="8" r="0.8" fill="#D0E0FF" opacity="0.25"/>
+                    </pattern>
+
+                    {/* NOVO: Gradiente de vidro transparente */}
+                    <radialGradient id="vidroCentroTransparente" cx="40%" cy="40%" r="50%">
+                      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
+                      <stop offset="40%" stopColor="#FFFFFF" stopOpacity="0.1" />
+                      <stop offset="100%" stopColor="#4A90E2" stopOpacity="0.15" />
+                    </radialGradient>
+
+                    {/* NOVO: Sombra interna para profundidade */}
+                    <radialGradient id="sombraInternaVidro" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0" />
+                      <stop offset="80%" stopColor="#000000" stopOpacity="0.06" />
+                      <stop offset="100%" stopColor="#000000" stopOpacity="0.12" />
                     </radialGradient>
 
                     <filter id="premiumShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -447,9 +467,27 @@ export default function Home() {
                     <path d="M255 255 L320 320" stroke="#faa749" strokeWidth="6" strokeLinecap="round" />
                     <path d="M255 255 L320 320" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.3" transform="translate(-1, -1)" />
                     
-                    {/* The Lupa Lens */}
+                    {/* The Lupa Lens - MOLDURA LARANJA */}
                     <circle cx="210" cy="210" r="65" stroke="#faa749" strokeWidth="4" fill="url(#lupaLensGradient)" fillOpacity="0.95" />
-                    <circle cx="210" cy="210" r="55" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.2" />
+                    
+                    {/* NOVO: Centro com padrão de fundo (TRANSPARÊNCIA COM ZOOM) */}
+                    <circle cx="210" cy="210" r="61" fill="url(#fundoZoomLupa)" />
+                    
+                    {/* NOVO: Camada de vidro (brilho transparente) */}
+                    <circle cx="210" cy="210" r="61" fill="url(#vidroCentroTransparente)" />
+                    
+                    {/* NOVO: Sombra interna (profundidade) */}
+                    <circle cx="210" cy="210" r="61" fill="url(#sombraInternaVidro)" />
+                    
+                    {/* NOVO: Brilho refrator no vidro */}
+                    <ellipse cx="185" cy="185" rx="22" ry="22" fill="#ffffff" opacity="0.35" />
+                    <ellipse cx="190" cy="180" rx="8" ry="8" fill="#ffffff" opacity="0.5" />
+                    
+                    {/* Borda interna da lupa (sutil) */}
+                    <circle cx="210" cy="210" r="57" stroke="#FF7700" strokeWidth="0.8" opacity="0.25" />
+                    
+                    {/* Borda externa da moldura (para realce) */}
+                    <circle cx="210" cy="210" r="65" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.15" />
                   </g>
                 </svg>
               </div>
