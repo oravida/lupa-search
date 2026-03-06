@@ -86,13 +86,16 @@ export default function About() {
             >
               <span className="text-lupa-orange text-sm font-bold tracking-widest uppercase mb-4 block">Fundador</span>
               <h2 className="text-4xl font-serif font-bold text-lupa-graphite mb-2">Leandro Araújo</h2>
-              <p className="text-lg text-lupa-gray-dark italic font-serif mb-8">Psicólogo · Pesquisador · Estrategista</p>
+              <p className="text-lg text-lupa-gray-dark italic font-serif mb-8">Psicólogo · Pesquisador · Analista</p>
               <div className="space-y-6 text-lupa-graphite leading-relaxed">
                 <p>
-                  Formado em Psicologia pela UFMG (2002), Leandro iniciou sua trajetória em diagnósticos comunitários para grandes projetos de infraestrutura, com financiamento do Banco Mundial.
+                  É psicólogo (UFMG, 2002), com vasta experiência em pesquisas de opinião pública e consultoria para campanhas políticas e estratégias de mercado.
                 </p>
                 <p>
-                  Em 2010, ingressa no universo das pesquisas de opinião pública. Em um diagnóstico para a Secretaria de Turismo de Alagoas, uma cliente disse que lema permitia <strong>"enxergar o território com uma lupa"</strong>. Assim nasce o nome da empresa.
+                  Iniciou sua carreira em programas de monitoramento social e gestão ambiental para empresas de grande porte como Vale e CEMIG, além de atuar em projetos sociais financiados pelo Banco Mundial. Foi presidente do Instituto de Meio Ambiente de Caucaia (2021-2024), idealizando e coordenando projetos ambientais de destaque, como iniciativas de preservação de tartarugas marinhas.
+                </p>
+                <p>
+                  Especialista em metodologias qualitativas, quantitativas e geoprocessamento, ele aplica seu conhecimento para oferecer análises precisas e insights estratégicos para clientes em todo o Brasil.
                 </p>
               </div>
               <div className="mt-12">
