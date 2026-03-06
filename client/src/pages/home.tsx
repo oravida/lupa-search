@@ -513,11 +513,8 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center text-sm font-semibold tracking-wide text-lupa-gray-dark border-t border-gray-100 pt-8 mb-6">
-            CEARÁ · BAHIA · SERGIPE · MINAS GERAIS · GOIÁS · AMAPÁ · ACRE · ALAGOAS
-          </div>
-          <div className="text-center mt-4">
-            <span className="text-lupa-orange text-xl md:text-2xl font-bold tracking-[0.25em] uppercase">
+          <div className="text-center border-t border-gray-100 pt-8 mt-4">
+            <span className="text-lupa-orange text-3xl md:text-4xl font-bold tracking-[0.25em] uppercase">
               Atuação em todo território nacional
             </span>
           </div>
