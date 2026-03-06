@@ -1,8 +1,14 @@
 {
-  "buildCommand": "npx vite build",
+  "version": 2,
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "framework": "vite",
+  "functions": {
+    "api/server.js": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/server" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
