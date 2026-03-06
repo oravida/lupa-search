@@ -57,6 +57,14 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
+            <Link
+              href="/sobre"
+              className="text-sm font-medium text-lupa-graphite hover:text-lupa-orange transition-colors"
+              data-testid="link-sobre"
+              onClick={() => window.scrollTo(0, 0)}
+            >
+              Sobre a Lupa
+            </Link>
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -67,14 +75,6 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Link
-              href="/sobre"
-              className="text-sm font-medium text-lupa-graphite hover:text-lupa-orange transition-colors"
-              data-testid="link-sobre"
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              Sobre a Lupa
-            </Link>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -92,6 +92,13 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden absolute top-24 w-full bg-white border-b border-gray-100 shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-4 flex flex-col">
+            <Link
+              href="/sobre"
+              className="text-base font-medium text-lupa-graphite hover:text-lupa-orange transition-colors py-2 block"
+              onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
+            >
+              Sobre a Lupa
+            </Link>
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -101,13 +108,6 @@ export default function Navbar() {
                 {link.name}
               </button>
             ))}
-            <Link
-              href="/sobre"
-              className="text-base font-medium text-lupa-graphite hover:text-lupa-orange transition-colors py-2 block"
-              onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
-            >
-              Sobre a Lupa
-            </Link>
           </div>
         </div>
       )}
