@@ -559,17 +559,17 @@ export default function Home() {
           </div>
 
           <div className="mb-6">
-            <h3 className="text-3xl font-serif font-bold text-lupa-graphite mb-2">Pesquisa Qualitativa — Intenção de Voto | Goiás 2018</h3>
-            <p className="text-lg text-lupa-gray-dark">Diagnóstico baseado em entrevistas em profundidade e grupos focais codificados (Goiânia).</p>
+            <h3 className="text-3xl font-serif font-bold text-lupa-graphite mb-2">Pesquisa Qualitativa — Análise de Conjuntura Política</h3>
+            <p className="text-lg text-lupa-gray-dark">Análise qualitativa com codificação de entrevistas em profundidade e grupos focais.</p>
           </div>
           <div className="bg-white border border-gray-200 p-8 md:p-12 mb-12 rounded-xl shadow-sm overflow-hidden">
             <div className="flex flex-col items-center gap-8">
-              <img src={maxqdaImage} alt="Interface de pesquisa qualitativa MAXQDA" className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
-                onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Interface+MAXQDA"; }} />
-              <img src={metodologiaGeoVoto} alt="Metodologia Geografia do Voto" className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
-                onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Metodologia+Geografia+do+Voto"; }} />
-              <img src={metodologiaTseFontes} alt="Metodologia TSE + Outras Fontes de Dados" className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
-                onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Metodologia+TSE+Fontes+de+Dados"; }} />
+              <img
+                src="/attached_assets/WhatsApp_Image_2026-03-03_at_08.42.24_1772562819034.jpeg"
+                alt="Pesquisa Qualitativa — Análise de Conjuntura Política"
+                className="w-full max-w-4xl rounded-lg shadow-md border border-gray-100"
+                onError={(e) => { const t = e.target as HTMLImageElement; t.onerror = null; t.src = "https://placehold.co/800x400?text=Pesquisa+Qualitativa"; }}
+              />
             </div>
           </div>
 
