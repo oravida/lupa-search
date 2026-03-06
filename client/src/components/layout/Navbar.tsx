@@ -42,17 +42,18 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+        {/* altura aumentada de h-20 para h-24 */}
+        <div className="flex justify-between h-24 items-center">
           <Link href="/" className="flex items-center gap-3" data-testid="link-home">
-            <img 
-              src={logoUrl} 
-              alt="Lupa Logo" 
-              className="h-12 w-auto"
-              onError={(e) => { 
+            <img
+              src={logoUrl}
+              alt="Lupa Logo"
+              className="h-20 w-auto"   {/* era h-12, agora h-20 */}
+              onError={(e) => {
                 const t = e.target as HTMLImageElement;
-                t.onerror = null; 
-                t.src = "https://placehold.co/200x80?text=Lupa"; 
-              }} 
+                t.onerror = null;
+                t.src = "https://placehold.co/200x80?text=Lupa";
+              }}
             />
           </Link>
 
@@ -89,8 +90,9 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Menu mobile — ajustado para top-24 para acompanhar a nova altura */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 w-full bg-white border-b border-gray-100 shadow-lg">
+        <div className="md:hidden absolute top-24 w-full bg-white border-b border-gray-100 shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-4 flex flex-col">
             {navLinks.map((link) => (
               <button
