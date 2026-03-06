@@ -51,9 +51,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const data = insertContactSchema.parse(req.body);
       await storage.createContactMessage(data);
-      console.log("Contact API: Message received from", data.email);
+      console.log("✅ Contact API: Message received from", data.email);
+      
       try {
         const { client, fromEmail } = await getResendClient();
+        
+        console.log("📧 Tentando enviar email...");
+        console.log("   De:", fromEmail);
+        console.log("   Para: leandro@lupapesquisas.com.br");
+        
         const emailResult = await client.emails.send({
           from: fromEmail || "Lupa Site <onboarding@resend.dev>",
           to: "leandro@lupapesquisas.com.br",
@@ -70,16 +76,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
             </table>
           `,
         });
-        console.log("Email sent successfully to leandro@lupapesquisas.com.br", emailResult);
+        
+        console.log("✅ Email sent successfully!");
+        console.log("   ID:", emailResult.id);
+        console.log("   Status:", emailResult);
+        
       } catch (emailError: any) {
-        console.error("Email sending failed (form data was saved):", emailError.message);
+        console.error("❌ Email sending FAILED!");
+        console.error("   Erro:", emailError.message);
+        console.error("   Detalhes completos:", JSON.stringify(emailError, null, 2));
       }
+      
       res.status(200).json({
         success: true,
         message: "Solicitação enviada com sucesso! Entraremos em contato em breve.",
       });
     } catch (error: any) {
-      console.error("Contact form error:", error);
+      console.error("❌ Contact form error:", error);
       res.status(400).json({
         success: false,
         message: "Erro ao processar sua solicitação.",
