@@ -573,9 +573,11 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="flex justify-center w-full">
           <Button onClick={scrollToForm} className="bg-lupa-orange hover:bg-orange-500 text-white text-lg h-14 px-8 rounded-none border-0" data-testid="button-cta-eleitoral">
             Quero minha pesquisa eleitoral
           </Button>
+          </div>
         </div>
       </section>
 
@@ -609,9 +611,11 @@ export default function Home() {
           <div className="mb-10 text-sm tracking-wide text-gray-300 font-medium">
             IMOBILIÁRIO · VAREJO · SERVIÇOS · GESTÃO PÚBLICA · SAÚDE
           </div>
+          <div className="flex justify-center w-full">
           <Button onClick={scrollToForm} className="bg-lupa-orange hover:bg-orange-500 text-white text-lg h-14 px-8 rounded-none border-0" data-testid="button-cta-empresarial">
             Quero minha pesquisa empresarial
           </Button>
+          </div>
         </div>
       </section>
 
@@ -642,9 +646,11 @@ export default function Home() {
             ))}
           </div>
 
+          <div className="flex justify-center w-full">
           <Button onClick={scrollToForm} className="bg-lupa-graphite hover:bg-gray-800 text-white text-lg h-14 px-8 rounded-none border-0" data-testid="button-cta-ambiental">
-            Quero meu projeto ambiental
+            Quero minha pesquisa ambiental
           </Button>
+          </div>
         </div>
       </section>
 
