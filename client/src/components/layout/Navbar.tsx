@@ -9,6 +9,10 @@ export default function Navbar() {
   const [location] = useLocation();
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -61,7 +65,6 @@ export default function Navbar() {
               href="/sobre"
               className="text-sm font-medium text-lupa-graphite hover:text-lupa-orange transition-colors"
               data-testid="link-sobre"
-              onClick={() => window.scrollTo(0, 0)}
             >
               Sobre a Lupa
             </Link>
@@ -95,7 +98,7 @@ export default function Navbar() {
             <Link
               href="/sobre"
               className="text-base font-medium text-lupa-graphite hover:text-lupa-orange transition-colors py-2 block"
-              onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
+              onClick={() => setIsOpen(false)}
             >
               Sobre a Lupa
             </Link>
